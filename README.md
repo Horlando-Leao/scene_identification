@@ -1,5 +1,5 @@
 # DETECÇÃO DE CENAS POTENCIALMENTE PERIGOSAS
-## Projeto da disciplina de inteligência artificial
+## Esse repositório é um refatoramente que tem origem em outro repositório remoto
 
 ### Descrição:
 O repositório é uma api, que recebe apenas uma url de imagem, e retorna se aquela imagem apresenta perigo
