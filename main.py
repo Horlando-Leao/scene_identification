@@ -1,5 +1,5 @@
-from ImagesDetector import ImagesDetector
-from CleaningImages import CleaningImages
+from classImage.ImagesDetector import ImagesDetector
+from classImage.CleaningImages import CleaningImages
 
 if __name__ == '__main__':
 

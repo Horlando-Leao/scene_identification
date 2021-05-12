@@ -11,4 +11,4 @@ class Utilities:
         return '.'.join([i, (d + '0' * decimal_places)[:decimal_places]])
 
 
-print(Utilities.truncate_number(value=1212.1222212, decimal_places=0))
+#print(Utilities.truncate_number(value=1212.1222212, decimal_places=0))

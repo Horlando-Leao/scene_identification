@@ -1,5 +1,3 @@
-from CleaningImages import CleaningImages
-from GetImageUrl import GetImageUrl
 import cv2
 
 
