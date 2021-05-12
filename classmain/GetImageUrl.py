@@ -11,6 +11,16 @@ class GetImageUrl:
     def __init__(self, url_image: str):
         self.url_image = url_image
 
+    @property
+    def url_image(self):
+        return self._url_image
+
+    @url_image.setter
+    def url_image(self, value):
+        if not isinstance(value, str):
+            raise TypeError("atributo url_image precisa ser do tipo <str>")
+        self._url_image = value
+
     def url_to_image_array(self):
         """RECEBE UMA URL STRING E RETORNA UMA IMAGEM FORMATADA EM ARRAY
         ,SALVA APENAS NA MÉMORIA RAM."""
@@ -49,6 +59,12 @@ class GetImageUrl:
 
         response = req.get(self.url_image)
         im = Image.open(BytesIO(response.content))
+        #im.show()  # mostrar imagem
         return (im)
 
-        # im.show() #mostrar imagem""
+
+
+
+#minhaimagem = GetImageUrl(url_image = "https://i.ytimg.com/vi/LKlH9Cdi_oA/maxresdefault.jpg")
+#print(minhaimagem.url_to_image_normal())
+
