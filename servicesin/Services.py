@@ -21,4 +21,4 @@ class ServicesDetectsAll(GetImageUrl.GetImageUrl, ImagesDetector.ImagesDetector)
         return "aaaaaaaaa"
 
 
-newservice = ServicesDetectsAll(url="https://i.ytmg.com/vi/LKlH9Cdi_oA/maxresdefault.jpg");
+#newservice = ServicesDetectsAll(url="https://i.ytmg.com/vi/LKlH9Cdi_oA/maxresdefault.jpg");
