@@ -12,14 +12,8 @@ def index() -> json:
     return "<H1>Page Index<H1>"
 
 
-# rota de teste
-@app.route("/olamundo/<string:user>", methods=["GET"])
-def olaMundo(user: str) -> json:
-    return {"Olá": "{0}".format(user)}
-
-
 @app.route("/detectsall/<string:url>", methods=["GET"])
-def detects_all(url: str) -> json:
+def detectsall(url: str) -> json:
     url = url.replace("||", "/")
 
     if not Utilities.Utilities.valid_url(url):
@@ -39,4 +33,4 @@ def response_generator(status: int, mensage: str, quatPeople: str = "", quatFace
     response["faces"] = quatFaces
     response["probabilidadeArma"] = probilidGun
     response["probabilidadeNaoSerArma"] = noProbilidGun
-    return (response)
+    return response

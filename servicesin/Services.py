@@ -13,12 +13,15 @@ class ServicesDetectsAll(GetImageUrl.GetImageUrl, ImagesDetector.ImagesDetector)
 
     @url.setter
     def url(self, value):
+        if not isinstance(value, str):
+            raise TypeError("URL precisa ser do tipo str")
+
         if not Utilities.Utilities.valid_url(value):
             raise FileNotFoundError("URL não é valida")
         self._url = value
 
     def main(self):
-        return "aaaaaaaaa"
+        body = self.detection_bodys(self.url_to_image_normal(self.url))
+        return body
 
-
-#newservice = ServicesDetectsAll(url="https://i.ytmg.com/vi/LKlH9Cdi_oA/maxresdefault.jpg");
+# newservice = ServicesDetectsAll(url="https://i.ytmg.com/vi/LKlH9Cdi_oA/maxresdefault.jpg");
