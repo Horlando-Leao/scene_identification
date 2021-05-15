@@ -59,7 +59,7 @@ class GetImageUrl:
 
         response = req.get(self.url_image)
         im = Image.open(BytesIO(response.content))
-        im.show()  # mostrar imagem
+        #im.show()  # mostrar imagem
         return im
 
 

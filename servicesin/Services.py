@@ -24,10 +24,6 @@ class ServicesDetectsAll:
 
     def main(self):
         image = GetImageUrl.GetImageUrl(self.url).url_to_image_array()
-        print(image)
-        print("..\\haarcascade\\haarcascade_fullbody.xml")
-        print(os.path.curdir)
-        time.sleep(2)
         detection = ImagesDetector.ImagesDetector(image)
         body = detection.detection_bodys()
         face = detection.detection_faces()

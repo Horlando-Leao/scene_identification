@@ -14,7 +14,7 @@ class ImagesDetector:
         DE PARTES SUPERIORES DAS PESSOAS NA FOTO"""
 
         carregaAlgoritmo = cv2.CascadeClassifier("classmain/haarcascade/haarcascade_fullbody.xml")
-        print(carregaAlgoritmo)
+        #print(carregaAlgoritmo)
         imagem = self.image
 
         # Limpando iamge
@@ -50,7 +50,7 @@ class ImagesDetector:
         count = 0
         try:
             for bodys_x in bodys:
-                print(bodys_x)
+                #print(bodys_x)
                 count += 1
 
             print("Quat. de pessoas: ", count)
@@ -82,7 +82,7 @@ class ImagesDetector:
         count = 0
         try:
             for faces_x in faces:
-                print(faces_x)
+                #print(faces_x)
                 count += 1
             print("Quat. de faces: ", count)
             return (count)
