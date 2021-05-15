@@ -19,18 +19,28 @@ def detectsall(url: str) -> json:
     if not Utilities.Utilities.valid_url(url):
         return response_generator(400, "o parametro (url) é obrigatório")
 
-    result = Services.ServicesDetectsAll(url)
-    return response_generator(200, "Imagem processada com sucesso", str(result[0]), str(result[1]), str(result[2]),
-                              str(result[3]))
+    result = Services.ServicesDetectsAll(url).main()
+    return response_generator(status=200,
+                              message="Imagem processada com sucesso",
+                              number_people=int(result[0]),
+                              number_faces=int(result[1]),
+                              number_guns=int(result[2]),
+                              url=url)
 
 
-def response_generator(status: int, mensage: str, quatPeople: str = "", quatFaces: str = "", probilidGun: str = "",
-                       noProbilidGun: str = ""):
+def response_generator(status: int,
+                       message: str,
+                       number_people: int = "",
+                       number_faces: int = "",
+                       number_guns: int = "",
+                       url: str = ""):
     response = {}
     response["status"] = status
-    response["mensagem"] = mensage
-    response["pessoas"] = quatPeople
-    response["faces"] = quatFaces
-    response["probabilidadeArma"] = probilidGun
-    response["probabilidadeNaoSerArma"] = noProbilidGun
+    response["mensagem"] = message
+    response["data"] = {
+        "number_people": number_people,
+        "number_faces": number_faces,
+        "number_guns": number_guns
+    }
+    response["url"] = url
     return response

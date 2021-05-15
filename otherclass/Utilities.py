@@ -26,7 +26,7 @@ class Utilities:
             else:
                 return False
         except Exception as e:
-            # print("Servidor indisponível. Erro:", e)
+            print("Servidor indisponível. Erro:", e)
             return False
 
 

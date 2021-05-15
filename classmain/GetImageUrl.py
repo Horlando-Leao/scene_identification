@@ -23,7 +23,7 @@ class GetImageUrl:
 
     def url_to_image_array(self):
         """RECEBE UMA URL STRING E RETORNA UMA IMAGEM FORMATADA EM ARRAY
-        ,SALVA APENAS NA MÉMORIA RAM."""
+        ,SALVA APENAS NA MÉMORIA RAM. IDEAL PARA TRABALHAR COM OPENCV E HAARCASCADE"""
 
         try:
             resp = urlopen(self.url_image)
@@ -55,12 +55,12 @@ class GetImageUrl:
 
     def url_to_image_normal(self):
         """RECEBE UMA URL STRING E RETORNA UMA IMAGEM SEM FORMATAÇÃO
-        ,SALVA APENAS NA MÉMORIA RAM."""
+        ,SALVA APENAS NA MÉMORIA RAM. IDEAL PARA TRABALHAR COM KERAS"""
 
         response = req.get(self.url_image)
         im = Image.open(BytesIO(response.content))
-        #im.show()  # mostrar imagem
-        return (im)
+        im.show()  # mostrar imagem
+        return im
 
 
 

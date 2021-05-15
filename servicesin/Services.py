@@ -1,9 +1,11 @@
-from classmain import GetImageUrl
 from classmain import ImagesDetector
 from otherclass import Utilities
+from classmain import GetImageUrl
+import time
+import os
 
 
-class ServicesDetectsAll(GetImageUrl.GetImageUrl, ImagesDetector.ImagesDetector):
+class ServicesDetectsAll:
     def __init__(self, url: str):
         self.url = url
 
@@ -21,7 +23,16 @@ class ServicesDetectsAll(GetImageUrl.GetImageUrl, ImagesDetector.ImagesDetector)
         self._url = value
 
     def main(self):
-        body = self.detection_bodys(self.url_to_image_normal(self.url))
-        return body
+        image = GetImageUrl.GetImageUrl(self.url).url_to_image_array()
+        print(image)
+        print("..\\haarcascade\\haarcascade_fullbody.xml")
+        print(os.path.curdir)
+        time.sleep(2)
+        detection = ImagesDetector.ImagesDetector(image)
+        body = detection.detection_bodys()
+        face = detection.detection_faces()
+        gun = detection.detection_guns()
+
+        return [body, face, gun]
 
 # newservice = ServicesDetectsAll(url="https://i.ytmg.com/vi/LKlH9Cdi_oA/maxresdefault.jpg");
