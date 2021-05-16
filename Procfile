@@ -1,1 +1,1 @@
-web: python <app.py> arquivo main
+web: gunicorn wsgi:app

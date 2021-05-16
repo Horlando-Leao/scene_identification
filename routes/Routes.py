@@ -1,7 +1,6 @@
-from typing import Dict
-from flask import json, request
+from flask import json
 
-from main import app
+from app.main import app
 from otherclass import Utilities
 from servicesin import Services
 
