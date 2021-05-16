@@ -1,4 +1,4 @@
-from flask import json
+
 
 from app.main import app
 from otherclass import Utilities
@@ -7,12 +7,12 @@ from servicesin import Services
 
 # rota de teste
 @app.route("/", methods=["GET"])
-def index() -> json:
+def index():
     return "<H1>Page Index<H1>"
 
 
 @app.route("/detectsall/<string:url>", methods=["GET"])
-def detectsall(url: str) -> json:
+def detectsall(url: str):
     url = url.replace("||", "/")
 
     if not Utilities.Utilities.valid_url(url):
