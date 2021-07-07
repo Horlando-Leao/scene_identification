@@ -1,24 +1,73 @@
 # DETECÇÃO DE CENAS POTENCIALMENTE PERIGOSAS
-## Esse repositório é um refatoramente que tem origem em outro repositório remoto
+## Esse repositório é um refatoramente que tem origem de outro repositório remoto meu: https://github.com/Horlando-Leao/dangerousSceneIdentification
 
 ### Descrição:
 O repositório é uma api, que recebe apenas uma url de imagem, e retorna se aquela imagem apresenta perigo
 
 ### o que essa api faz:
-Avalia se a pessoa está encapuzado, quantidade de pessoas e se possui armas na imagem
+Analisa em uma imagem a quantidade de faces humanas e também corpos e além disso a quantidade de armas.
 
-### Blz, mas o que está rodando?:
-Muitas libs, as principais são openCV e Keras.
+### Tecnologias
+- Python
+  - Libs
+    - OpenCV
+    - Pandas
+    - Pillow
+    - Requests
+  - Framework
+    - Flask
+  - Deploy
+    - Heroku
 
 ### o que pretendo:
-Disponibilizar para a comunidade api muito simples, aonde um usuário poderá usar em seu sistema de segurança local
+Disponibilizar para a comunidade api muito simples, no qual um usuário poderá usar em seu sistema de segurança local
 
-### blz, mas como usar:
-#### 0: chame a url (http://servidor.inexistente.ainda/)
-#### 1: escolha um link url de imagem e troque as barras "/" por "||" (use algum replace)
-####    1.1: antes = "http://fotos.google/minha-imagem.jpg"
-####    1.2 depois = "http:||||fotos.google||minha-imagem.jpg"
-#### 2: passe o link já modificado como parâmetro após a última barra da url
+### Como usar:
 
-### Ficaria algo assim:
-url = "http://servidor.inexistente.ainda/http:||||fotos.google||minha-imagem.jpg"
+
+Teste se o servidor está funcionando com a url abaixo, deverá aparacer a Mensagem "Page Index":
+https://secview.herokuapp.com/
+
+---------------------------
+Passa no URL da requisição do tipo GET um parâmetro.
+exemplo https://secview.herokuapp.com/detectsall/{seu parametro}
+
+O parâmetro deve ser uma URL de uma imagem em um servidor acessível, caso contrário receberá está mensagem do servidor:
+
+```JSON
+{
+  "data": {
+    "number_faces": "",
+    "number_guns": "",
+    "number_people": ""
+  },
+  "mensagem": "o parametro (url) é obrigatório",
+  "status": 400,
+  "url": ""
+}
+```
+
+---------------------------
+Este parâmetro do tipo URL deve trocar todas as / (barras invetidas) por ||
+Exemplo: de https://images.uol/pessoa_andando.jpeg para https:||||images.uol||pessoa_andando.jpeg 
+
+Exemplos de requisições para testar agora:
+
+https://secview.herokuapp.com/detectsall/https:||||s.france24.com||media||display||3fe8f454-88c3-11eb-ad87-005056a98db9||w:1280||p:16x9||000_DV915340.webp
+
+https://secview.herokuapp.com/detectsall/https:||||media.gazetadopovo.com.br||2010||11||38fb3a8e0d31e8a4b9f98dcc38508a47-gpMedium.jpg
+
+https://secview.herokuapp.com/detectsall/https:||||ep00.epimg.net||brasil||imagenes||2014||03||30||album||1396205399_006677_1396205894_album_normal.jpg
+
+Estou tendo um pouco de problema com precisão.
+
+
+
+
+
+
+
+
+
+
+
